@@ -3,9 +3,9 @@ package invertedgreetings;
 import java.util.Scanner;
 
 class Names {
-    private String[] names = new String[5];
 
-    void getNames() {
+    private String[] getNames() {
+        String[] names = new String[5];
         Scanner input = new Scanner(System.in);
         System.out.println("Podaj 5 imion:");
 
@@ -14,13 +14,15 @@ class Names {
         }
 
         input.close();
+        return names;
     }
 
     void showInvertedGreetings() {
+        String[] names = getNames();
         int i = names.length;
         while (i > 0) {
-            System.out.println("Cześć " + names[i - 1]);
             i--;
+            System.out.println("Cześć " + names[i]);
         }
     }
 }

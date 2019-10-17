@@ -5,16 +5,22 @@ import java.util.Locale;
 class NumbersFromRange {
     void showNumbersUsingWhile(int lowerRange, int upperRange) {
         float number = lowerRange;
+        System.out.printf("%.1f", number);
+        number += 0.1;
+
         while (number <= upperRange) {
-            System.out.printf(Locale.US, "%.1f\n", number);
-            number += 0.1f;
+            System.out.printf(", %.1f", number);
+            number += 0.1;
         }
     }
 
     void showNumbersUsingDoWhile(int lowerRange, int upperRange) {
         float number = lowerRange;
+        System.out.printf("%.1f", number);
+        number += 0.1;
+
         do {
-            System.out.printf(Locale.US, "%1.1f\n", number);
+            System.out.printf(", %1.1f", number);
             number += 0.1f;
         } while (number <= upperRange);
     }

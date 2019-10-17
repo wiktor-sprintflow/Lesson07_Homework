@@ -10,31 +10,26 @@ class Number {
             System.out.println("Podaj liczbę:");
             number = in.nextInt();
             in.nextLine();
-        } while (validateNumber(number) != 0);
+        } while (!validateNumber(number));
         in.close();
     }
 
-    private int validateNumber(int number) {
-        final int LOWER_RANGE = 100;
-        final int UPPER_RANGE = 200;
-        final int TOO_SMALL = -1;
-        final int TOO_BIG = 1;
-        final int INDIVISIBLE = 2;
-        final int DIVISIBLE = 0;
+    private boolean validateNumber(int number) {
+        final int lowerRange = 100;
+        final int upperRange = 200;
 
-
-        if (number < LOWER_RANGE) {
+        if (number < lowerRange) {
             System.out.println("Podana liczba jest za mała.");
-            return TOO_SMALL;
-        } else if (number > UPPER_RANGE) {
+            return false;
+        } else if (number > upperRange) {
             System.out.println("Podana liczba jest za duża.");
-            return TOO_BIG;
+            return false;
         } else if (number % 3 != 0) {
             System.out.println("Liczba nie jest podzielna przez 3.");
-            return INDIVISIBLE;
+            return false;
         } else {
             System.out.println("Twoja liczba jest ok.");
-            return DIVISIBLE;
+            return true;
         }
     }
 }
